@@ -399,7 +399,7 @@ const RequestDetailModal: React.FC<RequestDetailModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 relative max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 relative max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         onClick={e => e.stopPropagation()}
       >
         <button
@@ -1609,14 +1609,9 @@ export const UserDashboard: React.FC = () => {
   const handleAvailabilityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (!session?.donorProfile) return;
     const value = e.target.value as DonorProfile['availabilityStatus'];
-    const donors = JSON.parse(localStorage.getItem('raktsetu_donors') || '[]');
-    const idx = donors.findIndex((d: any) => d.userId === session.user.id);
-    if (idx !== -1) {
-      donors[idx].availabilityStatus = value;
-      donors[idx].updatedAt = new Date().toISOString();
-      localStorage.setItem('raktsetu_donors', JSON.stringify(donors));
-      loadSession();
-    }
+    db.updateDonorAvailability(session.user.id, value);
+    loadSession();
+    loadMatchedRequests(session.user.id);
   };
 
   const handleSaveDonorProfile = async (updated: Partial<DonorProfile>) => {
@@ -1626,16 +1621,13 @@ export const UserDashboard: React.FC = () => {
     if (updated.location && updated.location !== session.donorProfile.location) {
       coords = await geocodeAndGetCoords(updated.location);
     }
-    const donors = JSON.parse(localStorage.getItem('raktsetu_donors') || '[]');
-    const idx = donors.findIndex((d: any) => d.userId === session.user.id);
-    if (idx !== -1) {
-      donors[idx] = {
-        ...donors[idx],
+    const current = db.findDonorProfileByUserId(session.user.id);
+    if (current) {
+      db.createDonorProfile({
+        ...current,
         ...updated,
         ...coords,
-        updatedAt: new Date().toISOString(),
-      };
-      localStorage.setItem('raktsetu_donors', JSON.stringify(donors));
+      });
     }
     setShowDonorEditForm(false);
     loadSession();
@@ -2406,6 +2398,21 @@ export const UserDashboard: React.FC = () => {
             <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 text-xs text-amber-800 font-semibold mb-6 flex items-center gap-2.5">
               <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0" />
               You are currently marked as <strong>{STATUS_BADGE[session.donorProfile.availabilityStatus]?.label}</strong>. Set status to Available in your Donor card above to appear in active matching.
+            </div>
+          )}
+
+          {/* ── Donor Eligibility Pending Notice ── */}
+          {session.donorProfile.eligibilityStatus !== 'ELIGIBLE' && (
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3 mb-6 text-xs text-amber-800 flex items-center justify-between gap-3">
+              <div>
+                <strong>⚠️ Self-Declared Eligibility Pending:</strong> Please confirm your donation eligibility in your Donor Card above to match with active blood requests.
+              </div>
+              <button
+                onClick={() => setShowDonorEditForm(true)}
+                className="font-bold underline text-amber-900 shrink-0 cursor-pointer"
+              >
+                Confirm Now
+              </button>
             </div>
           )}
 

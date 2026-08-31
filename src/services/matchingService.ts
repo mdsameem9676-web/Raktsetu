@@ -192,8 +192,8 @@ export const matchingService = {
       // 6. Distance calculation
       const donorCoords = resolveCoords(donor.latitude, donor.longitude, donor.location);
       let distanceKm: number | null = null;
-      let distanceText = 'Nearby';
-      let distanceScore = 15; // neutral when no coords
+      let distanceText = 'Location unknown';
+      let distanceScore = 10; // neutral when no coords
       let hasCoordinates = false;
 
       if (donorCoords && reqCoords) {
@@ -340,8 +340,8 @@ export const matchingService = {
       // 4. Distance calculation
       const reqCoords = resolveCoords(req.latitude, req.longitude, req.location);
       let distanceKm: number | null = null;
-      let distanceText = 'Nearby';
-      let distanceScore = 15; // neutral
+      let distanceText = 'Location unknown';
+      let distanceScore = 10; // neutral
       let hasCoordinates = false;
 
       if (donorCoords && reqCoords) {
