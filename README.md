@@ -20,7 +20,7 @@
   $$\text{Request Created} \longrightarrow \text{Donor Accepted} \longrightarrow \text{On The Way} \longrightarrow \text{Reached Receiver} \longrightarrow \text{Donation Completed}$$
 * **🔒 Concurrency & Anti-Double-Booking Guard:** When a donor accepts an emergency request, their profile automatically transitions to an active donation lock state, preventing double-acceptance and eliminating wasted trips.
 * **🔔 Proactive In-App Push Alert Center:** Immediate notification feed with unread count badges, timestamping, urgency tags (`CRITICAL`, `URGENT`, `NORMAL`), and one-click actions.
-* **🛡️ Built-in Trust & Safety Layer:** Features self-declared medical checklists (last donation date, minimum weight, chronic conditions), protected password hashes, one-click requester reporting, and donor blocking.
+* **🛡️ Trust & Safety Layer:** Features self-declared medical checklists (last donation date, minimum weight, chronic conditions), protected password hashes, one-click requester reporting, and donor blocking.
 
 ---
 
@@ -40,11 +40,24 @@ Traditional emergency blood acquisition is fragmented, chaotic, and heavily reli
 
 ---
 
-## 📱 End-to-End Multi-Device Workflow & Verification Showcase
+## 🔬 Live Multi-Device Verification (What We Demonstrated in the Screenshots)
 
-The following 12 verified screenshots demonstrate an end-to-end live emergency scenario tested across two independent devices:
-- **Device A (Laptop):** Receiver account (`rakesh`) posting a Critical **A+** blood request at Yashoda Hospital.
-- **Device B (Mobile):** Donor account (`Tawfiq`) with **O+** blood group matching, receiving the alert, and accepting the request.
+During our end-to-end verification test, we simulated a live emergency scenario between two distinct devices:
+- **Device A (Laptop):** Logged in as receiver **`rakesh`** needing **A+ (Critical, 1 Unit)** at Yashoda Hospital.
+- **Device B (Mobile):** Logged in as donor **`Tawfiq`** with **O+** blood group and 50 km coverage radius.
+
+Here is how each core feature is demonstrated across the 12 screenshots:
+
+1. **🌐 Cross-Device Real-Time Cloud Sync:** As soon as receiver `rakesh` posted the request on the laptop, donor `Tawfiq`'s mobile screen instantly displayed the incoming request without requiring any page reload. Accepting the request on mobile immediately updated the laptop screen in real time *(Screenshots 3, 4, 8, 12)*.
+2. **🧠 Intelligent RBC Blood Compatibility Algorithm:** The system verified that an `O+` donor is biologically compatible for an `A+` recipient, calculated proximity (`< 1 km away`), factored in `CRITICAL` urgency, and awarded a `100% Match Score` *(Screenshots 4, 5, 8, 9)*.
+3. **🔄 Two-Way Unified Capabilities:** Demonstrated single-account capability toggles: `rakesh` enabled Receiver mode while keeping Donor mode disabled, and `Tawfiq` enabled Donor mode with customizable radius and eligibility status *(Screenshots 2, 3, 12)*.
+4. **⏱️ Live Synchronized Journey Tracker:** As the donation progressed, milestone timestamps (`Request Created: 16:55` ➔ `Donor Accepted: 17:02`) updated in perfect lockstep on both the mobile phone and laptop dashboards *(Screenshots 6, 10)*.
+5. **🔔 In-App Real-Time Push Notifications:** Both devices received instant push notifications with unread counter badges and alert details (`Request Accepted · CRITICAL` on donor mobile; `Donor Accepted Your Request` on receiver laptop) *(Screenshots 7, 11)*.
+6. **🛡️ Trust & Safety Layer:** Single-donation concurrency locking activated on the donor's dashboard (`Active Donation In Progress`) to prevent double-booking, while the inspection modal provided one-click report and block tools *(Screenshots 2, 5, 6, 9)*.
+
+---
+
+## 📱 Detailed 12-Screenshot Walkthrough
 
 ---
 
