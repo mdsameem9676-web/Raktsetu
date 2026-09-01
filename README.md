@@ -11,14 +11,32 @@
 
 ---
 
-## 🌟 Key Features
+## 🌟 Core Features of Raktsetu
 
-* **🌐 Cross-Device Real-Time Cloud Sync:** Built with Supabase PostgreSQL and Realtime WebSocket subscriptions. Actions taken on Device A (e.g. mobile) instantly reflect on Device B (e.g. laptop) without manual page refreshes.
-* **🧠 Intelligent RBC Blood Compatibility Algorithm:** Automated medical-grade matching rules across all 8 major blood groups (A+, A-, B+, B-, AB+, AB-, O+, O-), scoring matches based on blood compatibility, proximity radius, donor availability, and emergency urgency.
-* **🔄 Two-Way Unified Capabilities:** A single user account can simultaneously act as a registered **Blood Donor** and an emergency **Blood Receiver** with dedicated independent capability toggles.
-* **⏱️ Live Synchronized Journey Tracker:** Real-time 5-stage donation lifecycle tracking (`Request Created` ➔ `Donor Accepted` ➔ `On The Way` ➔ `Reached Receiver` ➔ `Donation Completed`).
-* **🔔 In-App Real-Time Push Notifications:** Immediate contextual alert feed with unread badges, timestamping, and quick actions.
-* **🛡️ Trust & Safety Layer:** Built-in requester reporting, donor blocking, self-declared medical eligibility checklists, and anonymized public profile protections.
+* **🧠 Intelligent RBC Compatibility & Ranking Engine:** Automatically applies certified Red Blood Cell (RBC) biological compatibility rules across all 8 blood groups (`A+`, `A-`, `B+`, `B-`, `AB+`, `AB-`, `O+`, `O-`), generating an overall Match Score (0–100%) computed dynamically from biological compatibility, distance proximity, donor eligibility, and request urgency level.
+* **🌐 True Cross-Device Cloud Realtime Synchronization:** Powered by Supabase PostgreSQL and Realtime WebSocket pub/sub channels. Changes triggered on a mobile device immediately update all connected laptops, tablets, and desktops with zero page refreshes.
+* **🔄 Two-Way Unified User Capabilities:** Eliminates the rigid boundary between donors and patients. A single account can independently toggle and manage both **Donor Capability** (availability, donation radius, medical eligibility) and **Receiver Capability** (active blood requests, hospital emergency lines) from one unified dashboard.
+* **⏱️ Live 5-Stage Synchronized Journey Tracker:** Real-time milestone tracker providing transparent end-to-end visibility:
+  $$\text{Request Created} \longrightarrow \text{Donor Accepted} \longrightarrow \text{On The Way} \longrightarrow \text{Reached Receiver} \longrightarrow \text{Donation Completed}$$
+* **🔒 Concurrency & Anti-Double-Booking Guard:** When a donor accepts an emergency request, their profile automatically transitions to an active donation lock state, preventing double-acceptance and eliminating wasted trips.
+* **🔔 Proactive In-App Push Alert Center:** Immediate notification feed with unread count badges, timestamping, urgency tags (`CRITICAL`, `URGENT`, `NORMAL`), and one-click actions.
+* **🛡️ Built-in Trust & Safety Layer:** Features self-declared medical checklists (last donation date, minimum weight, chronic conditions), protected password hashes, one-click requester reporting, and donor blocking.
+
+---
+
+## ⚔️ How Raktsetu is Different from Existing Solutions
+
+Traditional emergency blood acquisition is fragmented, chaotic, and heavily reliant on panic-driven social media broadcasts (WhatsApp groups, Twitter/X posts) or outdated manual blood bank registries.
+
+| Feature Dimension | Traditional / Existing Solutions (WhatsApp, Manual Registries) | 🩸 Raktsetu Intelligent Platform |
+| :--- | :--- | :--- |
+| **Matching Speed & Precision** | ❌ Manual broadcasting; spam messages sent to hundreds of incompatible individuals. | ✅ **Automated Algorithm:** Instant calculation of biological RBC compatibility, geo-radius, and donor availability. |
+| **Real-Time Visibility** | ❌ Blind waiting, anxious phone calls, and zero tracking of whether a donor is actually coming. | ✅ **Live Journey Tracker:** Real-time 5-stage milestone tracking synchronized across donor and receiver devices. |
+| **Cross-Device Coordination** | ❌ Disconnected apps or isolated local storage; no multi-screen synchronization. | ✅ **Cloud Realtime WebSocket Sync:** Instantly syncs actions across mobile, tablet, and desktop in real-time. |
+| **Privacy & Security** | ❌ Sensitive phone numbers and medical details leaked across public groups and social media. | ✅ **Protected Platform:** Masked credentials, secure database RLS policies, and in-app notifications. |
+| **Donor Availability & Fatigue** | ❌ Donors get spammed even when they are ineligible, unavailable, or have already donated recently. | ✅ **Smart Availability Controls:** Donors set custom coverage radii, availability toggles, and eligibility cooldown timers. |
+| **Double-Booking Prevention** | ❌ Multiple donors show up at the hospital after one already donated, wasting crucial volunteer time. | ✅ **Active Concurrency Lock:** Automatically locks accepted donations to ensure focused 1-to-1 fulfillment. |
+| **User Experience** | ❌ Fragmented portals requiring separate accounts for donating vs receiving. | ✅ **Unified Two-Way Portal:** Toggle Donor and Receiver modes seamlessly from a single dashboard. |
 
 ---
 
