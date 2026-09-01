@@ -3,11 +3,14 @@
 > **Connecting Verified Blood Requesters with Compatible Nearby Donors in Real-Time.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-raktsetu--gray.vercel.app-E11D48?style=for-the-badge&logo=vercel)](https://raktsetu-gray.vercel.app/)
+[![Evaluator Presentation](https://img.shields.io/badge/Evaluator_Dossier-PRESENTATION.md-8B5CF6?style=for-the-badge&logo=googledocs)](./PRESENTATION.md)
 [![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Vite 8](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL_%2B_Realtime-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
+
+> 📌 **For Judges & Evaluators:** Please review our slide-by-slide [**Project Presentation & Evaluator Dossier (PRESENTATION.md)**](./PRESENTATION.md) containing the problem statement, clinical motivation, mathematical matching formula, system architecture, and production roadmap.
 
 ---
 
